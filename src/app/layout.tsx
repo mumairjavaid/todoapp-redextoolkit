@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import ClientProvider from "../app/ClientProvider"
+import { Provider } from "react-redux";
+import store from "./store/store";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,8 +18,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+      
     <html lang="en">
+      <ClientProvider>
       <body className={inter.className}>{children}</body>
+      </ClientProvider>
     </html>
+      
   );
 }
